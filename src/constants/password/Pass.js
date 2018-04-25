@@ -1,9 +1,10 @@
   import React from 'react';
-import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
-const FormItem = Form.Item;
-const Option = Select.Option;
-const AutoCompleteOption = AutoComplete.Option;
-
+  import './Pass.css'
+  import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button, AutoComplete } from 'antd';
+  const FormItem = Form.Item;
+  const Option = Select.Option;
+  const AutoCompleteOption = AutoComplete.Option;
+  var cookies = require('browser-cookies');
 const residences = [{
   value: 'zhejiang',
   label: 'Zhejiang',
@@ -33,11 +34,14 @@ class RegistrationForm extends React.Component {
     confirmDirty: false,
     autoCompleteResult: [],
   };
-  handleSubmit = (e) => {
+  handleSubmit = (e) => { //提交函数
     e.preventDefault();
     this.props.form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+//      console.log(values)
+        cookies.set('user', JSON.stringify(values));
+//      console.log(JSON.parse(cookies.get('user')))
+        this.props.history.push('/index')
       }
     });
   }
@@ -109,6 +113,7 @@ class RegistrationForm extends React.Component {
     ));
 
     return (
+      <div className="passBox">
       <Form onSubmit={this.handleSubmit}>
         <FormItem
           {...formItemLayout}
@@ -235,10 +240,10 @@ class RegistrationForm extends React.Component {
           <Button type="primary" htmlType="submit">Register</Button>
         </FormItem>
       </Form>
+      </div>
     );
   }
 }
-
 const PassWord = Form.create()(RegistrationForm);
 
 export default PassWord

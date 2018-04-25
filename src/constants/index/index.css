@@ -1,8 +1,16 @@
 
-.list{
-  background: #F5F5F5;
-  height: 794px;
-}
-.footer{
-  background: #F96268;
-}
+  .list{
+    background: #F5F5F5;
+    height: 794px;
+    padding-top: 20px;
+  }
+  .footer{
+    /*background: #F96268;*/
+  }
+  .headerBox{
+    background: #f0f2f5;
+    padding: 0;
+  }
+  .indexBox{
+    text-align: center;
+  }
