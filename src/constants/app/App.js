@@ -11,7 +11,7 @@ class App extends Component {
     this.handleclick = this.handleclick.bind(this)
   }
   handleclick(){
-    this.props.history.push('/index')
+    this.props.history.push('/index/1')
   }
   state = {
     current: 'mail',

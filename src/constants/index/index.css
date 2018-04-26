@@ -1,6 +1,6 @@
 
   .list{
-    background: #F5F5F5;
+    background: #316ba9;
     height: 794px;
     padding-top: 20px;
   }
@@ -13,4 +13,7 @@
   }
   .indexBox{
     text-align: center;
+  }
+  .listName{
+    color: #fff;
   }

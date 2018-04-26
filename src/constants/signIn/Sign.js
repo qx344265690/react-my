@@ -46,7 +46,7 @@
             if(data.success !== '200'){
               message.success('登录成功，快进去玩耍吧');//成功提示
               cookies.set('user', JSON.stringify(values)); //设置cookie
-              _this.props.history.push('/index')//跳转 接受2个参数pat  h和state
+              _this.props.history.push('/index/1')//跳转 接受2个参数pat  h和state
             }else{
                message.error('是不是服务器炸了等等吧');
                _this.handleClicks()

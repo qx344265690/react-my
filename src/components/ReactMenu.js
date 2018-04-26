@@ -1,86 +1,56 @@
   import React from 'react'
   import { Menu, Icon } from 'antd';
-  const SubMenu = Menu.SubMenu;
-  const MenuItemGroup = Menu.ItemGroup;
+  import { Link } from 'react-router-dom'
+//const SubMenu = Menu.SubMenu;
   class ReactMenu extends React.Component{
     constructor(props){
       super(props)
       this.state = {
-        current: 'mail',
-        listIcon:[],
-        listName:[]
+        current: '1',
       }
-      console.log(this.props.headerNav)
     }
     handleClick = (e) => {
-      console.log('click ', e);
       this.setState({
         current: e.key,
       });
+//    this.props.history.push('/index/e.key')
     }
     componentDidMount(){
-      const ListIcon = this.props.headerNav.line
-      console.log(ListIcon)
-      
-      var _this = this
-      var arr = [];
-      var arr2 = []
-      ListIcon.forEach(function(value, index, array) { 
-        console.log(value.icon)
-        arr.push(value.icon)
-        arr2.push(value.name)
-         
-      });
-      console.log(arr)
-      _this.setState({
-          listIcon:arr,
-          listName:arr2
-      })
+//    console.log(this.props)
+//    console.log(this.props.match.params.id)
+//    const ListIcon = this.props.headerNav.line
+//    var _this = this
+//    var arr = [];
+//    var arr2 = []
+//    ListIcon.forEach(function(value, index, array) { 
+////      console.log(value.icon)
+//      arr.push(value.icon)
+//      arr2.push(value.name)
+//    });
+//    _this.setState({
+//        listIcon:arr,
+//        listName:arr2
+//    })
+//    const List = a.map((a) => <Menu.Item key={a.id}><Icon type={a.icon} />{a.name}</Menu.Item>)
     }
     render(){
-      console.log(this.state.listName)
-      const ListI = this.state.listIcon
-      const ListN = this.state.listName
-      const lists = ListN.map((ListN) => <Menu.Item key={ListN}>{ListN}</Menu.Item> )
+      const a = this.props.headerNav.line//接受数组对象包含图片icon和名称name 需要接受不同的key来标记
+      const List = a.map((a) => <Menu.Item key={a.id}><Link to={/index/+a.id}><Icon type={a.icon} />{a.name}</Link></Menu.Item>)
       return (
         <Menu
           onClick={this.handleClick}
           selectedKeys={[this.state.current]}
           mode="horizontal"
         >
-        {lists}
-        <SubMenu title={<span><Icon type="setting" />Navigation Three - Submenu</span>}>
-            <MenuItemGroup title="Item 1">
-             {lists}
-
-            </MenuItemGroup>
-            <MenuItemGroup title="Item 2">
-              <Menu.Item key="setting:3">Option 3</Menu.Item>
-              <Menu.Item key="setting:4">Option 4</Menu.Item>
-            </MenuItemGroup>
-          </SubMenu>
+          {List}
         </Menu>
       )
     }
   }
   export default ReactMenu
-  
-//<Menu.Item key="mail">
-//          <Icon type="mail" />Navigation One
-//        </Menu.Item>
-//        <Menu.Item key="app">
-//          <Icon type="appstore" />Navigation Two
-//        </Menu.Item>
-//        <SubMenu title={<span><Icon type="setting" />Navigation Three - Submenu</span>}>
-//          <MenuItemGroup title="Item 1">
-//           
-//
-//          </MenuItemGroup>
-//          <MenuItemGroup title="Item 2">
-//            <Menu.Item key="setting:3">Option 3</Menu.Item>
-//            <Menu.Item key="setting:4">Option 4</Menu.Item>
-//          </MenuItemGroup>
-//        </SubMenu>
-//        <Menu.Item key="alipay">
-//          <span>Navigation Four - Link</span>
-//        </Menu.Item>
+
+
+// const List = a.map((a) =>
+//      <SubMenu  key={a.id} title={<span><Icon type={a.icon} />{a.name}</span>}>
+//          <Menu.Item key={a.id}><Link to={/index/+a.id}><Icon type={a.icon} />{a.name}</Link></Menu.Item>
+//      </SubMenu>)

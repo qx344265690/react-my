@@ -1,8 +1,6 @@
   import React from 'react';
-  import {Link} from 'react-router-dom'
-  import {Button} from 'antd'
   import './subnews.css'
-  class Subnews extends React.Component{
+  class ComponentFooter extends React.Component{
       constructor(props){
           super(props);
           this.clickhandler=this.clickhandler.bind(this);
@@ -13,13 +11,10 @@
       }
       render() {
           return (
-              <div>
-                  这是Subnews<br/>
-                  <Link to="/app/6" className="lickName">
-                   <Button type="primary">子组件跳转</Button>
-                   </Link>
+              <div className="footerClass">
+                  This is the bottom of my react project @1988.05.28 qixin
               </div>
           );
       }
   }
-  export default Subnews;
+  export default ComponentFooter;

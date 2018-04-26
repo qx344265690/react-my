@@ -19,7 +19,7 @@ ReactDOM.render(
       <BrowserRouter>
           <Switch>
               <Route path="/" exact component={Sign}/>
-              <Route path="/index"  component={Index}/>
+              <Route path="/index/:id"  component={Index}/>
               <Route path="/app/:id"  component={App}/>
               <Route path="/pass" component={Pass}/>
           </Switch>
