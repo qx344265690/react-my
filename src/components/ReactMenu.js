@@ -35,7 +35,7 @@
     }
     render(){
       const a = this.props.headerNav.line//接受数组对象包含图片icon和名称name 需要接受不同的key来标记
-      const List = a.map((a) => <Menu.Item key={a.id}><Link to={/index/+a.id}><Icon type={a.icon} />{a.name}</Link></Menu.Item>)
+      const List = a.map((a) => <Menu.Item key={a.id}><Link to={/index/+a.tos}><Icon type={a.icon} />{a.name}</Link></Menu.Item>)
       return (
         <Menu
           onClick={this.handleClick}

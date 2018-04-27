@@ -1,6 +1,4 @@
   import React from 'react';
-  import {Link} from 'react-router-dom'
-  import {Button} from 'antd'
   import './subnews.css'
   class ComponentSet extends React.Component{
       constructor(props){
@@ -13,11 +11,10 @@
       }
       render() {
           return (
-              <div>
-                  ComponentSetComponentSetComponentSetComponentSetComponentSet<br/>
-                  <Link to="/app/6" className="lickName">
-                   <Button type="primary">List跳转</Button>
-                   </Link>
+              <div className="set_Name">
+                  客服不在家,逛街去了<br/>
+                  老板看客服不在,泡妞去了<br/>
+                  都不在,看书免费,别问了
                    
               </div>
           );

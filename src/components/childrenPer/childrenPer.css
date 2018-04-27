@@ -1,0 +1,19 @@
+/*
+ *头像区域测css样式 
+ * 
+  */
+.avatarImg{
+  width: 100px;
+  height: 100px;
+}
+.ant-upload.ant-upload-select-picture-card > .ant-upload{
+  padding: 0;
+}
+.avatar-uploader{
+  position: absolute;
+  top: 40px;
+  left: 60px;
+}
+.formSub_box{
+  padding-top: 20px;
+}

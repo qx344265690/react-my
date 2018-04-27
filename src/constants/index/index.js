@@ -38,29 +38,34 @@
           line:[{
             'icon':'mail',
             'name':'消息查询',
-            'id':1
+            'id':1,
+            'tos':'message'
           },{
             'icon':'appstore',
             'name':'功能详情',
-            'id':2
+            'id':2,
+            'tos':'func'
           },{
             'icon':'key',
             'name':'智慧钥匙',
-            'id':3
+            'id':3,
+            'tos':'wisdom'
           },{
             'icon':'setting',
             'name':'个人中心',
-            'id':4
+            'id':4,
+            'tos':'per'
           },{
             'icon':'customer-service',
             'name':'客服中心',
-            'id':5
+            'id':5,
+            'tos':'set'
           }]
         }
       }
     }
     componentDidMount(){
-      this.props.history.push('/index/1')
+      this.props.history.push('/index/message')
     }
     render() {
 //     console.log(JSON.parse(cookies.get('user')))
@@ -72,7 +77,22 @@
               <img src={logo} className="App-logo" alt="logo" />
               <br/>
               <span className="listName">{a.phone?a.phone:a.userName}</span><br/>
-              <Link to='/'>回到首页</Link>
+              <div className="listBox"></div>
+              <div className="listBox1"></div>
+              <div className="listBox2"></div>
+              <div className="listBox3"></div>
+              <div className="listBox4"></div>
+              <div className="listBox5"></div>
+              <div className="listBox6"></div>
+              <div className="listBox5"></div>
+              <div className="listBox4"></div>
+              <div className="listBox3"></div>
+              <div className="listBox2"></div>
+              <div className="listBox1"></div>
+              <div className="listBox"></div>
+              <div className="listBoxB"></div>
+             
+              <Link className="indexBoxBack" to='/'>回到首页</Link>
             </Sider>
             
             <Layout>
@@ -82,11 +102,11 @@
               
               <Content id="rootChild">
                 <Switch>
-                    <Route path="/index/1" component={ComponentMessage} />
-                    <Route path="/index/2" component={ComponentFunction} />
-                    <Route path="/index/3" component={ComponentWisdom} />
-                    <Route path="/index/4" component={ComponentPersonal} />
-                    <Route path="/index/5" component={ComponentSet} />
+                    <Route path="/index/message" component={ComponentMessage} />
+                    <Route path="/index/func" component={ComponentFunction} />
+                    <Route path="/index/wisdom" component={ComponentWisdom} />
+                    <Route path="/index/per" component={ComponentPersonal} />
+                    <Route path="/index/set" component={ComponentSet} />
                 </Switch>
               </Content>
               
