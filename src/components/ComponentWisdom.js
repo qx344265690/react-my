@@ -2,25 +2,45 @@
   import {Link} from 'react-router-dom'
   import {Button} from 'antd'
   import './subnews.css'
-  class ComponentWisdom extends React.Component{
-      constructor(props){
-          super(props);
-          this.clickhandler=this.clickhandler.bind(this);
-      }
-      clickhandler(){
-          console.log(this.props.history);
-//        this.props.history.push('/app');
-      }
-      render() {
-          return (
-              <div>
-                  ComponentWisdomComponentWisdomComponentWisdom<br/>
-                  <Link to="/app/6" className="lickName">
-                   <Button type="primary">List跳转</Button>
-                   </Link>
-                   
-              </div>
-          );
-      }
+
+function FancyBorder(props) {
+  return (
+    <div className={'FancyBorder FancyBorder-' + props.color}>
+      {props.children}
+    </div>
+  );
+}
+
+function Dialog(props) {
+  return (
+    <FancyBorder color="blue">
+      <h1 className="Dialog-title">
+        {props.title}
+      </h1>
+      <p className="Dialog-message">
+        {props.message}
+      </p>
+    </FancyBorder>
+  );
+}
+  
+  class ComponentWisdom extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+    render() {
+      return (
+        <Dialog
+      title="Welcome"
+      message="Thank you for visiting our spacecraft!" />
+      );
+    }
   }
   export default ComponentWisdom;
+  
+
+
+
+
+
+//ComponentWisdom

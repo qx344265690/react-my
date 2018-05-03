@@ -30,6 +30,7 @@
     }
     
     handleSubmit = (e) => {//提交 
+      this.handleClick()
       e.preventDefault();
       this.props.form.validateFields((err, values) => {
         if (!err) {
@@ -42,7 +43,6 @@
         })
         .then(function(res){
           res.json().then(function(data){
-             _this.handleClick()
             if(data.success !== '200'){
               message.success('登录成功，快进去玩耍吧');//成功提示
               cookies.set('user', JSON.stringify(values)); //设置cookie

@@ -41,7 +41,7 @@ class RegistrationForm extends React.Component {
 //      console.log(values)
         cookies.set('user', JSON.stringify(values));
 //      console.log(JSON.parse(cookies.get('user')))
-        this.props.history.push('/index')
+        this.props.history.push('/index/message')
       }
     });
   }
