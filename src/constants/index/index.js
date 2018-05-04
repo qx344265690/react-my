@@ -77,20 +77,6 @@
               <img src={logo} className="App-logo" alt="logo" />
               <br/>
               <span className="listName">{a.phone?a.phone:a.userName}</span><br/>
-              <div className="listBox"></div>
-              <div className="listBox1"></div>
-              <div className="listBox2"></div>
-              <div className="listBox3"></div>
-              <div className="listBox4"></div>
-              <div className="listBox5"></div>
-              <div className="listBox6"></div>
-              <div className="listBox5"></div>
-              <div className="listBox4"></div>
-              <div className="listBox3"></div>
-              <div className="listBox2"></div>
-              <div className="listBox1"></div>
-              <div className="listBox"></div>
-              <div className="listBoxB"></div>
              
               <Link className="indexBoxBack" to='/'>回到首页</Link>
             </Sider>

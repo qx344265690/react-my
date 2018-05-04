@@ -1,6 +1,4 @@
   import React from 'react';
-  import {Link} from 'react-router-dom'
-  import {Button} from 'antd'
   import './subnews.css'
 
 function FancyBorder(props) {
@@ -25,9 +23,6 @@ function Dialog(props) {
 }
   
   class ComponentWisdom extends React.Component {
-    constructor(props) {
-      super(props);
-    }
     render() {
       return (
         <Dialog

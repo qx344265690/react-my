@@ -7,6 +7,7 @@
       super(props)
       this.state = {
         current: '1',
+        theme: 'dark'
       }
     }
     handleClick = (e) => {
@@ -41,6 +42,7 @@
           onClick={this.handleClick}
           selectedKeys={[this.state.current]}
           mode="horizontal"
+          theme={this.state.theme}
         >
           {List}
         </Menu>

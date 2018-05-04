@@ -30,3 +30,6 @@
   .MessageCol{
     margin: 6px 0 0 6px
   }
+  .ant-tabs-nav-scroll{
+    text-align: center;
+  }

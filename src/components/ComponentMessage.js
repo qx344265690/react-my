@@ -40,7 +40,7 @@
       render() {
 //      const Lists = this.state.line.map((a)=><TabPane tab={a.name} key={a.id}>{a.name}</TabPane>)
         const showList =this.state.line.map((a)=>
-                              <Col span={4} key={a.id} className="MessageCol">
+                              <Col span={5} key={a.id} className="MessageCol">
                                  <Card
                                     hoverable
                                     style={{ width: 240 }}
@@ -57,21 +57,21 @@
               <div>
                   <Tabs tabPosition={this.state.tabPosition} onChange={this.clickhandlers}>
                       <TabPane tab="男频专区" key="1">
-                        <Row gutter={16}>
-                          {showList}
-                        </Row>
+                          <Row gutter={16}>
+                            {showList}
+                          </Row>
                       </TabPane>
                       <TabPane tab="女频专区" key="2">
-                        {showList}
+                        <div>123123</div>
                       </TabPane>
                       <TabPane tab="修仙专区" key="3">
-                      {showList}
+                        {showList}
                       </TabPane>
                       <TabPane tab="捉鬼专区" key="4">
-                      {showList}
+                        {showList}
                       </TabPane>
                       <TabPane tab="盗墓专区" key="5">
-                      {showList}
+                        {showList}
                       </TabPane>
                   </Tabs>
               </div>
