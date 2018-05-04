@@ -1,6 +1,6 @@
   import React from 'react';
   import './subnews.css'
-  import { Tabs, Card, Col, Row  } from 'antd';
+  import { Tabs, Card, Col, Row, Carousel } from 'antd';
   const TabPane = Tabs.TabPane;
   const { Meta } = Card;
   class ComponentMessage extends React.Component{
@@ -9,10 +9,6 @@
           this.state ={
             tabPosition: 'bottom',
             line:[{
-              'id':1,
-              'name':'一夜',
-              'img':'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
-            },{
               'id':2,
               'name':'一天',
               'img':'http://img06.tooopen.com/images/20180413/tooopen_sy_238971656951.jpg'
@@ -53,6 +49,13 @@
                                   </Card>
                               </Col>
                             )
+        
+        const showCarousel = this.state.line.map((a)=>
+                      
+                        <div className="showCarImg"><img src={a.img}/></div>
+                      
+        )
+        
           return (
               <div>
                   <Tabs tabPosition={this.state.tabPosition} onChange={this.clickhandlers}>
@@ -65,7 +68,9 @@
                         <div>123123</div>
                       </TabPane>
                       <TabPane tab="修仙专区" key="3">
-                        {showList}
+                         <Carousel autoplay>
+                            {showCarousel}
+                          </Carousel>
                       </TabPane>
                       <TabPane tab="捉鬼专区" key="4">
                         {showList}
