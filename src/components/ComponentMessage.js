@@ -1,6 +1,7 @@
   import React from 'react';
   import './subnews.css'
   import { Tabs, Card, Col, Row, Carousel } from 'antd';
+  
   const TabPane = Tabs.TabPane;
   const { Meta } = Card;
   class ComponentMessage extends React.Component{
@@ -27,6 +28,8 @@
             }]
           }
       }
+      
+      
       changeTabPosition = (tabPosition) => {
         this.setState({ tabPosition });
       }
@@ -52,7 +55,7 @@
         
         const showCarousel = this.state.line.map((a)=>
                       
-                        <div className="showCarImg"><img src={a.img}/></div>
+                        <div className="showCarImg" key={a.name}><img src={a.img}/></div>
                       
         )
         
@@ -73,10 +76,10 @@
                           </Carousel>
                       </TabPane>
                       <TabPane tab="捉鬼专区" key="4">
-                        {showList}
+                        
                       </TabPane>
                       <TabPane tab="盗墓专区" key="5">
-                        {showList}
+                        
                       </TabPane>
                   </Tabs>
               </div>

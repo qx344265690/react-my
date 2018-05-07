@@ -52,7 +52,7 @@
   }
   /*图片轮播*/
   .showCarImg img{
-    width: 100%;
+    height: 400px;
   }
   .ant-carousel .slick-slide{
     height: 400px;

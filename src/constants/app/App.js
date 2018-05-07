@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import logo from '../../logo.svg';
-import {Button} from 'antd'
 import './app.scss'
-
+import { connect } from 'react-redux'
+import Card from './Card'
+import Dialog from './Dialog'
 
 class App extends Component {
   constructor(props){//函数定义一个类，它是构造函数ES6的
@@ -19,23 +20,52 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        
-        <p>
-          <button onClick={this.handleclick}>点击跳转到index页面</button>
-        </p>
-        
-        这个参数是:{this.props.match.params.id}
-        
-        <Button type="primary">{this.props.match.params.id}获取传值</Button>
-        
+        <Card />
+        <Dialog />
+        <button onClick={this.props.changeName}>change name</button>
+      <button onClick={this.props.showDialog}>show dialog</button>
       </div>
       
     );
   }
 }
+function mapStateToProps(state) {
+  return state
+}
 
-export default App;
+function mapDispatchToProps(dispatch) {
+  return {
+    changeName () {
+      console.log('即将改名……')
+      dispatch({
+        type: 'CHANGE_NAME',
+        name: '葬爱'
+      })
+      console.log('完成改名！')
+    },
+    showDialog () {
+      dispatch({
+        type: 'SHOW_DIALOG'
+      })
+    }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App)
+
+//
+// <header className="App-header">
+//        <img src={logo} className="App-logo" alt="logo" />
+//        <h1 className="App-title">Welcome to React</h1>
+//      </header>
+//      
+//      <p className="App-intro">
+//        To get started, edit <code>src/App.js</code> and save to reload.
+//      </p>
+//      
+//      <p>
+//        <button onClick={this.handleclick}>点击跳转到index页面</button>
+//      </p>
+//      
+//      这个参数是:{this.props.match.params.id}
+//      
+//      <Button type="primary">{this.props.match.params.id}获取传值</Button>
