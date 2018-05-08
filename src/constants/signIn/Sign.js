@@ -3,13 +3,14 @@
   import './Sign.css'
   import { Link } from 'react-router-dom'
   import {Form, Icon, Input, Button, Checkbox, message, Spin} from 'antd'
-  
+  import { connect } from 'react-redux'
   var cookies = require('browser-cookies');
   const FormItem = Form.Item;
 
   class NormalLoginForm extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props)
         this.state = {
             show:true,
             list:'as',
@@ -85,7 +86,7 @@
               <Checkbox>Remember me</Checkbox>
             )}
             <Link to='/pass' className="login-form-forgot">Forgot password</Link>
-            <Button type="primary" htmlType="submit" className="login-form-button">
+            <Button type="primary" htmlType="submit" className="login-form-button" onClick={this.props.changeLogin}>
               Log in
             </Button>
           </FormItem>
@@ -94,8 +95,21 @@
       );
     }
   }
+  function mapStateToProps(state){
+    return state
+  }
+  function mapDidStateTpProps(dispatch){
+    return{
+      changeLogin(){
+        dispatch({
+          type:'LOGIN_IN',
+          status:true
+        })
+      }
+    }
+  }
   const Sign = Form.create()(NormalLoginForm);
-  export default Sign
+  export default connect(mapStateToProps,mapDidStateTpProps)(Sign)
 
        
 //console.log(JSON.parse(cookies.get('user'))) //获取用户信息

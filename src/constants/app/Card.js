@@ -1,6 +1,7 @@
 
   import React from 'react';
   import { connect } from 'react-redux'
+ 
   const Card = (props) => {
     return <div className="m-card">
       <div>
@@ -14,10 +15,10 @@
   
   function mapStateToProps(state) {
     var info = state.card
+    console.log(state)
     return {
       name: info.name,
       picture: info.picture
     }
   }
-  
   export default connect(mapStateToProps)(Card)

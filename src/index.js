@@ -7,23 +7,15 @@ import { renderRoutes } from 'react-router-config'; //路由插件
 import routers from './routers/router.js' //路由
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
-import reducer from './redux/reducers.js'
-import { createLogger } from 'redux-logger'
-//创建一个初始化的state
-  var initState = {
-    card:{
-      name:'jack',
-      picture:'a.jpg'
-    },
-    dialog:{
-      status:false
-    }
-  }
-  
+import initState from './redux/initState.js'
+import reducer from './redux/reducers.js' //返回state
+import { createLogger } from 'redux-logger'//控制台打印
+
+
+//在控制台打印出了信息
 const logger = createLogger();
 //创建store
 const store = createStore(reducer,initState,applyMiddleware(logger))
-
 ReactDOM.render(
   <div>
     <Provider store={store}>
@@ -36,16 +28,3 @@ ReactDOM.render(
   </div>
   , document.getElementById('root'));
 registerServiceWorker();
-
-
-
-
-
-
-
-
-
-//<Route path="/" exact component={Sign}/>
-//<Route path="/index/:id"  component={Index}/>
-//<Route path="/app/:id"  component={App}/>
-//<Route path="/pass" component={Pass}/>

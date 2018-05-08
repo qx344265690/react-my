@@ -1,5 +1,4 @@
 function cardReducer(state, action) {
-  console.log(state)
   switch (action.type) {
     case 'CHANGE_NAME':
     return {
@@ -28,10 +27,33 @@ function dialogReducer(state, action) {
   }
 }
 
+function messageReducer(state,action){
+  switch (action.type) {
+    case 'MESS_NAME':
+    return {
+      name: action.name, // 使用action携带的新name
+    }
+    default:
+    return state // 没有匹配的action type，返回原来的state
+  }
+}
+function loginReducer(state,action){
+  switch(action.type){
+    case 'LOGIN_IN':
+    return{
+      status:true
+    }
+    default:
+    return state
+  }
+}
+
 function reducer(state, action) {
   return {
     card: cardReducer(state.card, action),
-    dialog: dialogReducer(state.dialog, action)
+    dialog: dialogReducer(state.dialog, action),
+    message:messageReducer(state.message,action),
+    login:loginReducer(state.login,action)
   }
 }
 

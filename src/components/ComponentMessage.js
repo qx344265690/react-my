@@ -1,14 +1,23 @@
   import React from 'react';
   import './subnews.css'
   import { Tabs, Card, Col, Row, Carousel } from 'antd';
+  import { connect } from 'react-redux'
+  
+  import MessageMan from './childrenMessage/messageMan'
+  import MessageGirl from './childrenMessage/messageGirl'
+  import MessageImmortal from './childrenMessage/messageImmortal'
+  import MessageGhost from './childrenMessage/messageGhost'
+  import MessageRobber from './childrenMessage/messageRobber'
   
   const TabPane = Tabs.TabPane;
   const { Meta } = Card;
+    
+
   class ComponentMessage extends React.Component{
       constructor(props){
           super(props);
           this.state ={
-            tabPosition: 'bottom',
+            tabPosition: 'left',//控制选项卡导航展示位置
             line:[{
               'id':2,
               'name':'一天',
@@ -29,73 +38,78 @@
           }
       }
       
-      
-      changeTabPosition = (tabPosition) => {
-        this.setState({ tabPosition });
-      }
+//    
+//    changeTabPosition = (tabPosition) => {
+//      this.setState({ tabPosition });
+//    }
       clickhandlers = (a)=>{
         console.log(a)
       }
       render() {
 //      const Lists = this.state.line.map((a)=><TabPane tab={a.name} key={a.id}>{a.name}</TabPane>)
         const showList =this.state.line.map((a)=>
-                              <Col span={5} key={a.id} className="MessageCol">
-                                 <Card
-                                    hoverable
-                                    style={{ width: 240 }}
-                                    cover={<img alt="example" src={a.img} />}
-                                  >
-                                    <Meta
-                                      title={a.name}
-                                      description="www.instagram.com"
-                                    />
-                                  </Card>
-                              </Col>
-                            )
-        
+                <Col span={5} key={a.id} className="MessageCol">
+                   <Card
+                      hoverable
+                      style={{ width: 240 }}
+                      cover={<img alt="example" src={a.img} />}
+                    >
+                      <Meta
+                        title={a.name}
+                        description="www.instagram.com"
+                      />
+                    </Card>
+                </Col>
+              )
         const showCarousel = this.state.line.map((a)=>
-                      
-                        <div className="showCarImg" key={a.name}><img src={a.img}/></div>
-                      
+              <div className="showCarImg" key={a.name}><img src={a.img}/></div>
         )
-        
-          return (
-              <div>
-                  <Tabs tabPosition={this.state.tabPosition} onChange={this.clickhandlers}>
-                      <TabPane tab="男频专区" key="1">
-                          <Row gutter={16}>
-                            {showList}
-                          </Row>
-                      </TabPane>
-                      <TabPane tab="女频专区" key="2">
-                        <div>123123</div>
-                      </TabPane>
-                      <TabPane tab="修仙专区" key="3">
-                         <Carousel autoplay>
-                            {showCarousel}
-                          </Carousel>
-                      </TabPane>
-                      <TabPane tab="捉鬼专区" key="4">
-                        
-                      </TabPane>
-                      <TabPane tab="盗墓专区" key="5">
-                        
-                      </TabPane>
-                  </Tabs>
-              </div>
-          );
+//      <Row gutter={16}>
+//                      {showList}
+//                    </Row>
+      return (
+          <div>
+              <Tabs tabPosition={this.state.tabPosition} onChange={this.clickhandlers}>
+                  <TabPane tab="男频专区" key="1">
+                      <MessageMan/>
+                  </TabPane>
+                  
+                  <TabPane tab="女频专区" key="2">
+                      <MessageGirl/>
+                  </TabPane>
+                  
+                  <TabPane tab="修仙专区" key="3">
+                      <Carousel autoplay>
+                        {showCarousel}
+                      </Carousel>
+                      <MessageImmortal/>
+                  </TabPane>
+                  
+                  <TabPane tab="捉鬼专区" key="4">
+                    {this.props.message.name}
+                    <button onClick={this.props.changeMessage}>点我改变</button>
+                    <MessageGhost/>
+                  </TabPane>
+                  
+                  <TabPane tab="盗墓专区" key="5">
+                    <MessageRobber/>
+                  </TabPane>
+              </Tabs>
+          </div>
+      );
       }
   }
-  export default ComponentMessage;
-  
-//<Card title="This is Message">
-//                  <Card.Grid style={gridStyle}>系统消息</Card.Grid>
-//                  <Card.Grid style={gridStyle}>女频消息</Card.Grid>
-//                  <Card.Grid style={gridStyle}>男频消息</Card.Grid>
-//                  <Card.Grid style={gridStyle}>Content</Card.Grid>
-//                </Card>
-//                <Tabs tabPosition={this.state.tabPosition} onChange={this.onChange}>
-//                  <TabPane tab="Tab 1" key="1">Content of Tab 1</TabPane>
-//                  <TabPane tab="Tab 2" key="2">Content of Tab 2</TabPane>
-//                  <TabPane tab="Tab 3" key="3">Content of Tab 3</TabPane>
-//                </Tabs>
+  function mapStateToProps(state){
+    return state
+  }
+  function mapDispatchToProps(dispatch){
+    return {
+      changeMessage(){
+        dispatch({
+          type: 'CHANGE_NAME',
+        name: '葬爱'
+        })
+      }
+    }
+  }
+  export default connect(mapStateToProps,mapDispatchToProps)(ComponentMessage);

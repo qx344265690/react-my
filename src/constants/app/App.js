@@ -25,7 +25,6 @@ class App extends Component {
         <button onClick={this.props.changeName}>change name</button>
       <button onClick={this.props.showDialog}>show dialog</button>
       </div>
-      
     );
   }
 }
@@ -51,21 +50,3 @@ function mapDispatchToProps(dispatch) {
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(App)
-
-//
-// <header className="App-header">
-//        <img src={logo} className="App-logo" alt="logo" />
-//        <h1 className="App-title">Welcome to React</h1>
-//      </header>
-//      
-//      <p className="App-intro">
-//        To get started, edit <code>src/App.js</code> and save to reload.
-//      </p>
-//      
-//      <p>
-//        <button onClick={this.handleclick}>点击跳转到index页面</button>
-//      </p>
-//      
-//      这个参数是:{this.props.match.params.id}
-//      
-//      <Button type="primary">{this.props.match.params.id}获取传值</Button>
